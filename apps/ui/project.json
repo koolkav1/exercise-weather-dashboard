@@ -2,7 +2,7 @@
   "name": "ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "exercise-weather-dashboard",
+  "prefix": ["exercise-weather-dashboard", "app", "weather"],
   "sourceRoot": "apps/ui/src",
   "tags": [],
   "targets": {

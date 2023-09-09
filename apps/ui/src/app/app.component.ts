@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { WeatherService } from './services/weather.service';
+import { take } from 'rxjs';
 
 @Component({
   selector: 'exercise-weather-dashboard-root',
@@ -6,5 +8,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  title = 'ui';
+  onClick(event:any): void {
+    console.log(event);
+  }
 }

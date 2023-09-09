@@ -9,7 +9,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "exerciseWeatherDashboard",
+            "prefix": ["exerciseWeatherDashboard", "app", "weather"],
             "style": "camelCase"
           }
         ],
@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "exercise-weather-dashboard",
+            "prefix": ["exercise-weather-dashboard", "app", "weather"],
             "style": "kebab-case"
           }
         ]

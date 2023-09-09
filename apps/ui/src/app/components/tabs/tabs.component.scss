@@ -1,0 +1,30 @@
+.vertical-menu {
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+}
+
+/* Style the menu items */
+.menu-item {
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+}
+
+/* Change background color of the menu item when hovered */
+.menu-item:hover {
+  background-color: #555;
+}
+
+/* Style the Font Awesome icons */
+.fas {
+  margin-right: 10px;
+}

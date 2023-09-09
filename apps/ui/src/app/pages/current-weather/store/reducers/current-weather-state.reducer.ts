@@ -1,5 +1,5 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
-import { CurrentWeatherStateActions } from '../actions/current-weather-state/current-weather-state.actions';
+import { CurrentWeatherStateActions } from '../actions/current-weather-state.actions';
 
 export const currentWeatherStateFeatureKey = 'currentWeatherState';
 

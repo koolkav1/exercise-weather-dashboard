@@ -1,0 +1,11 @@
+<div (click)="onClickEvent($event)" class="card">
+<h2>{{day}} {{tempMax}} C</h2>
+<div class="weatherIcon">
+  <div class="{{icon}}">
+    <div class="inner"></div>
+  </div>
+</div>
+<span>{{tempMin}} C</span>
+<p>{{ weatherDescription}}</p>
+<span>Humiditiy: {{humidity}}</span>
+</div>
