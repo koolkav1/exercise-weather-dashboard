@@ -30,8 +30,8 @@ export interface Current {
 }
 
 export interface Condition {
-  text: Text;
-  icon: Icon;
+  text: string;
+  icon: string;
   code: number;
 }
 

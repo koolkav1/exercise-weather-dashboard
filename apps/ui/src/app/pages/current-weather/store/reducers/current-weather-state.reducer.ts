@@ -1,26 +1,101 @@
 import { createFeature, createReducer, on } from '@ngrx/store';
 import { CurrentWeatherStateActions } from '../actions/current-weather-state.actions';
+import { CurrentWeatherState } from '../../../../interfaces/current-weather.state.interface';
+import { CurrentWeatherResponse } from '../../../../interfaces/weather-api-current.interface';
+import { InitialState } from '@ngrx/store/src/models';
 
 export const currentWeatherStateFeatureKey = 'currentWeatherState';
 
-// eslint-disable-next-line @typescript-eslint/no-empty-interface
 export interface State {
-
+  currentWeather: CurrentWeatherState,
 }
 
-export const initialState: State = {
-
+export const initialState: CurrentWeatherState = {
+  current: {
+    last_updated_epoch: 0,
+    last_updated: '',
+    temp_c: 0,
+    temp_f: 0,
+    is_day: 0,
+    condition: {
+      text: '',
+      icon: '',
+      code: 0,
+    },
+    wind_mph: 0,
+    wind_kph: 0,
+    wind_degree: 0,
+    wind_dir: '',
+    pressure_mb: 0,
+    pressure_in: 0,
+    precip_mm: 0,
+    precip_in: 0,
+    humidity: 0,
+    cloud: 0,
+    feelslike_c: 0,
+    feelslike_f: 0,
+    vis_km: 0,
+    vis_miles: 0,
+    uv: 0,
+    gust_mph: 0,
+    gust_kph: 0,
+  },
+  location: {
+    name: '',
+    region: '',
+    country: '',
+    lat: 0,
+    lon: 0,
+    tz_id: '',
+    localtime_epoch: 0,
+    localtime: '',
+  },
+  loading: false,
+  loaded: false,
+  error: {
+    message: '',
+    name: '',
+  },
 };
+
+function loadCurrentWeatherHandler(state: CurrentWeatherState) {
+  return {
+    ...state,
+    loading: true,
+  };
+}
+function loadCurrentWeatherHandlerSuccess(state: CurrentWeatherState, action: { data: CurrentWeatherResponse }) {
+  return {
+    ...state,
+    loaded: true,
+    loading: false,
+    current: action.data.current,
+    location: action.data.location
+  }
+}
+
+function loadCurrentWeatherHandlerFail(state: CurrentWeatherState, action: {error: Error}) {
+  return {
+    ...state,
+    loaded: true,
+    loading: false,
+    error: action.error
+  }
+}
 
 export const reducer = createReducer(
   initialState,
-  on(CurrentWeatherStateActions.loadCurrentWeatherStates, state => state),
-  on(CurrentWeatherStateActions.loadCurrentWeatherStatesSuccess, (state, action) => state),
-  on(CurrentWeatherStateActions.loadCurrentWeatherStatesFailure, (state, action) => state),
+  on(CurrentWeatherStateActions.loadCurrentWeatherStates, loadCurrentWeatherHandler),
+  on(
+    CurrentWeatherStateActions.loadCurrentWeatherStatesSuccess,
+    loadCurrentWeatherHandlerSuccess),
+  on(
+    CurrentWeatherStateActions.loadCurrentWeatherStatesFailure,
+    loadCurrentWeatherHandlerFail
+  )
 );
 
 export const currentWeatherStateFeature = createFeature({
   name: currentWeatherStateFeatureKey,
   reducer,
 });
-

@@ -1,9 +1,9 @@
 <div (click)="onClickEvent($event)" class="card">
 <h2>{{day}} {{tempMax}} C</h2>
 <div class="weatherIcon">
-  <div class="{{icon}}">
-    <div class="inner"></div>
-  </div>
+  <ng-container *ngIf="icon as image">
+    <img src="{{image}}">
+  </ng-container>
 </div>
 <span>{{tempMin}} C</span>
 <p>{{ weatherDescription}}</p>

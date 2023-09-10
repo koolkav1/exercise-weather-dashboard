@@ -1,0 +1,9 @@
+
+  <weather-card *ngIf="currentWeather$ | async as current"
+    [day]="current.last_updated"
+    [humidity]="current.humidity"
+    [icon]="'http:' + current.condition.icon"
+    [tempMin]="current.feelslike_c"
+    [tempMax]="current.temp_c"
+    [weatherDescription]="current.condition.text"
+  ></weather-card>

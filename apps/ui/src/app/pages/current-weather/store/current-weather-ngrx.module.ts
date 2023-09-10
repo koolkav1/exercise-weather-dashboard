@@ -4,11 +4,13 @@ import { StoreModule } from '@ngrx/store';
 import * as fromCurrentWeatherState from './reducers/current-weather-state.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { CurrentWeatherStateEffects } from './effects/current-weather-state.effects';
+import { WeatherService } from '../../../services/weather.service';
 
 
 
 @NgModule({
   declarations: [],
+  providers: [WeatherService],
   imports: [
     CommonModule,
     StoreModule.forFeature(fromCurrentWeatherState.currentWeatherStateFeatureKey, fromCurrentWeatherState.reducer),
