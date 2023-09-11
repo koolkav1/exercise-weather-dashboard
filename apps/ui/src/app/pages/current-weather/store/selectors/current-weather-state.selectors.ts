@@ -2,12 +2,16 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 import * as fromCurrentWeatherState from '../reducers/current-weather-state.reducer';
 import { CurrentWeatherState } from '../../../../interfaces/current-weather.state.interface';
 import { Current, Location } from '../../../../interfaces/weather-api-forecast.interface';
+import * as fromFeature from "../reducers/current-weather-state.index.reducer";
 
-export const selectCurrentWeatherState = createFeatureSelector<fromCurrentWeatherState.State>(
-  fromCurrentWeatherState.currentWeatherStateFeatureKey
-);
 
-export const loadCurrentWeatherFromState = createSelector(selectCurrentWeatherState, (state: fromCurrentWeatherState.State) => state.currentWeather);
+// export const getCurrentWeatherFromState = createSelector(
+//   fromFeature.getCurrentWeatherFeatureState,
+//   (state: fromFeature.CurrentWeatherFeatureState) => state.currentWeather
+// );
+
+export const loadCurrentWeatherFromState = createSelector(fromFeature.getCurrentWeatherFeatureState,
+  (state: fromFeature.CurrentWeatherFeatureState) => state.currentWeather);
 
 const getCurrentWeather = (state: CurrentWeatherState): Current => state.current;
 const getCurrentWeatherLocation = (state: CurrentWeatherState): Location => state.location;

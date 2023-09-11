@@ -20,17 +20,3 @@ export const loadCurrentWeatherResolver: ResolveFn<boolean> = () => {
     finalize(() => loading = false)
   )
 };
-
-// return store.pipe(
-//   tap(() => {
-//   if(!loading){
-//    loading = true;
-//    store.dispatch(
-//     loadCategoriesByParentCategoryCodeRequest({
-//       parentCategoryCode: null }))
-//    }
-//  }),
-//  first(),
-//  finalize(() => loading = false)
-// );
-// };

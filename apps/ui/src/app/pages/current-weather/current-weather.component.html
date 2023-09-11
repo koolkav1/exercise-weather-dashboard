@@ -1,9 +1,13 @@
+<ng-container *ngIf="loaded | async" >
+  <ng-container *ngIf="currentWeather$ | async as current">
+    <weather-card
+      [day]="current.last_updated"
+      [humidity]="current.humidity"
+      [icon]="'http:' + current.condition.icon"
+      [tempMin]="current.feelslike_c"
+      [tempMax]="current.temp_c"
+      [weatherDescription]="current.condition.text"
+    ></weather-card>
+  </ng-container>
+</ng-container>
 
-  <weather-card *ngIf="currentWeather$ | async as current"
-    [day]="current.last_updated"
-    [humidity]="current.humidity"
-    [icon]="'http:' + current.condition.icon"
-    [tempMin]="current.feelslike_c"
-    [tempMax]="current.temp_c"
-    [weatherDescription]="current.condition.text"
-  ></weather-card>

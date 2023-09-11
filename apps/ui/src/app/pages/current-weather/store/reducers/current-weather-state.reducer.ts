@@ -1,14 +1,9 @@
-import { createFeature, createReducer, on } from '@ngrx/store';
+import { createReducer, on } from '@ngrx/store';
 import { CurrentWeatherStateActions } from '../actions/current-weather-state.actions';
 import { CurrentWeatherState } from '../../../../interfaces/current-weather.state.interface';
 import { CurrentWeatherResponse } from '../../../../interfaces/weather-api-current.interface';
-import { InitialState } from '@ngrx/store/src/models';
 
-export const currentWeatherStateFeatureKey = 'currentWeatherState';
 
-export interface State {
-  currentWeather: CurrentWeatherState,
-}
 
 export const initialState: CurrentWeatherState = {
   current: {
@@ -95,7 +90,4 @@ export const reducer = createReducer(
   )
 );
 
-export const currentWeatherStateFeature = createFeature({
-  name: currentWeatherStateFeatureKey,
-  reducer,
-});
+
