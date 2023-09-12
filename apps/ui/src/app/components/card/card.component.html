@@ -1,4 +1,4 @@
-<div (click)="onClickEvent($event)" class="card">
+<div data-cy="card" (click)="onClickEvent($event)" class="card">
 <h2>{{day}} {{tempMax}} C</h2>
 <div class="weatherIcon">
   <ng-container *ngIf="icon as image">

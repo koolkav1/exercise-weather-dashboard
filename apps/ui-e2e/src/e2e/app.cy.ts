@@ -1,13 +1,9 @@
-import { getGreeting } from '../support/app.po';
 
 describe('ui', () => {
   beforeEach(() => cy.visit('/'));
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
-
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome ui');
+  it('should display the current date', () => {
+    const date =   new Date().toISOString().substring(0,10);
+    cy.get('[data-cy="card"]').should('contain', date);
   });
 });

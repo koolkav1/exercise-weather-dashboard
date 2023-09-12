@@ -1,8 +1,26 @@
-<div class="vertical-menu">
-  <div class="menu-item">
-      <i class="fas fa-home"></i> Current
+<div class="nav">
+  <input type="checkbox" id="nav-check">
+  <div class="nav-header">
+    <div class="nav-title">
+      Weather App
+    </div>
   </div>
-  <div class="menu-item">
-      <i class="fas fa-envelope"></i> Forecast
+  <div class="nav-btn">
+    <label for="nav-check">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </div>
+
+  <div class="nav-links">
+    <a  routerLink="current"
+    routerLinkActive="active"
+    > <i class="fas fa-home"></i> Current</a>
+
+    <a  routerLink="forecast"
+    routerLinkActive="active"
+    > <i class="fa-solid fa-magnifying-glass"></i> Forecast</a>
+
   </div>
 </div>
